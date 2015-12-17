@@ -8,7 +8,7 @@ public class WordCount {
     public WordCount() {
 
     }
-    
+
     public Map<String, Integer> Phrase(String phrase) {
 
         String[] words = phrase.split("\\W+");
