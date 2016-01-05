@@ -18,7 +18,7 @@ public class Anagram {
 
     public List<String> match(List<String> words) {
 
-        List<String> result = new ArrayList<String>();
+        List<String> result = new ArrayList<>();
 
         for (String word : words) {
             if (isAnagramOf(word)) {
@@ -48,11 +48,11 @@ public class Anagram {
     }
 
     private Map<Character, Integer> countLetters(String word) {
-        Map<Character, Integer> letterCounts = new HashMap<Character, Integer>();
+        Map<Character, Integer> letterCounts = new HashMap<>();
 
-        int count;
-        for (char curChar : word.toCharArray()) {
-            count = letterCounts.containsKey(curChar) ? letterCounts.get(curChar) : 0;
+        for (int i=0; i<word.length(); i++) {
+            char curChar = word.charAt(i);
+            int count = letterCounts.containsKey(curChar) ? letterCounts.get(curChar) : 0;
             letterCounts.put(curChar, ++count);
         }
         return letterCounts;

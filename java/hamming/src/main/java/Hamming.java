@@ -6,15 +6,14 @@ public class Hamming {
         }
 
         int count = 0;
-        char[] strandArray1 = strand1.toCharArray();
-        char[] strandArray2 = strand2.toCharArray();
 
-        for (int i=0; i<strandArray1.length; i++) {
-            if (strandArray1[i] != strandArray2[i]) {
+
+        for (int i=0; i<strand1.length(); i++) {
+            if (strand1.charAt(i) != strand2.charAt(i)) {
                 count++;
             }
         }
-        
+
         return count;
     }
 
