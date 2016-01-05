@@ -42,14 +42,8 @@ public class Robot {
     }
 
     private String generate3DigitNumberString() {
-        String digit = "";
-
-        for (int i = 0; i<3; i++) {
-            int num = (random.nextInt(10));
-            digit += Integer.toString(num);
-        }
-        return digit;
-
+        int num = random.nextInt(1000);
+        return String.format("%03d", num);
     }
 
 }
