@@ -7,6 +7,7 @@ import java.util.Random;
 
 public class Robot {
 
+    private final static int FIRST_UPPER_CASE_LETTER_ASCII_CODE = 65;
 
     private Random random;
     private String name;
@@ -37,7 +38,7 @@ public class Robot {
     }
 
     private char generateUpperCaseLetter() {
-        return (char) (random.nextInt(26) + 65);
+        return (char) (random.nextInt(26) + FIRST_UPPER_CASE_LETTER_ASCII_CODE);
 
     }
 

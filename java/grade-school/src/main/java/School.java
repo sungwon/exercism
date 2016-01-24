@@ -16,17 +16,13 @@ public class School {
     }
 
     public void add(String name, int grade) {
-        List students;
-        if ((students=grade(grade)) == null) {
-            students = new ArrayList<String>();
-        }
+        List students = grade(grade);
         students.add(name);
         studentDb.put(grade, students);
     }
 
     public List grade(int grade) {
-        List students = studentDb.get(grade);
-        return students == null ? new ArrayList<String>() : students;
+        return studentDb.getOrDefault(grade, new ArrayList<String>());
     }
 
     public Map sort() {

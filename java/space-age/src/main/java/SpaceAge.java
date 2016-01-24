@@ -5,27 +5,32 @@
 public class SpaceAge {
 
 
-    private final static double EARTH_YEAR_SECONDS =  31557600;
-    private final static double MERCURY_PERIOD = 0.2408467;
-    private final static double VENUS_PERIOD = 0.61519726;
-    private final static double MARS_PERIOD = 1.8808158;
-    private final static double JUPITER_PERIOD = 11.862615;
-    private final static double SATURN_PERIOD = 29.447498;
-    private final static double URANUS_PERIOD = 84.016846;
-    private final static double NEPTUNE_PERIOD = 164.79132;
+    public enum OrbitalPeriods {
+        MERCURY_PERIOD(0.2408467),
+        VENUS_PERIOD(0.61519726),
+        MARS_PERIOD(1.8808158),
+        JUPITER_PERIOD(11.862615),
+        SATURN_PERIOD(29.447498),
+        URANUS_PERIOD(84.016846),
+        NEPTUNE_PERIOD(164.79132);
+
+        private double value;
+
+        private OrbitalPeriods(double value) {
+            this.value = value;
+        }
+    }
+
+    public final static double EARTH_YEAR_SECONDS =  31557600;
 
     private long seconds;
-
-    public SpaceAge(int seconds) {
-        this.seconds = seconds;
-    }
 
     public SpaceAge(long seconds) {
         this.seconds = seconds;
     }
 
-    private double calculateAge(double orbitalPeriod) {
-        return (seconds/(EARTH_YEAR_SECONDS * orbitalPeriod));
+    private double calculateAge(OrbitalPeriods orbitalPeriod) {
+        return (seconds/(EARTH_YEAR_SECONDS * orbitalPeriod.value));
     }
 
     public long getSeconds() {
@@ -37,30 +42,30 @@ public class SpaceAge {
     }
 
     public double onMercury() {
-        return calculateAge(MERCURY_PERIOD);
+        return calculateAge(OrbitalPeriods.MERCURY_PERIOD);
     }
 
     public double onVenus() {
-        return calculateAge(VENUS_PERIOD);
+        return calculateAge(OrbitalPeriods.VENUS_PERIOD);
     }
 
     public double onMars() {
-        return calculateAge(MARS_PERIOD);
+        return calculateAge(OrbitalPeriods.MARS_PERIOD);
     }
 
     public double onJupiter() {
-        return calculateAge(JUPITER_PERIOD);
+        return calculateAge(OrbitalPeriods.JUPITER_PERIOD);
     }
 
     public double onSaturn() {
-        return calculateAge(SATURN_PERIOD);
+        return calculateAge(OrbitalPeriods.SATURN_PERIOD);
     }
 
     public double onUranus() {
-        return calculateAge(URANUS_PERIOD);
+        return calculateAge(OrbitalPeriods.URANUS_PERIOD);
     }
 
     public double onNeptune() {
-        return calculateAge(NEPTUNE_PERIOD);
+        return calculateAge(OrbitalPeriods.NEPTUNE_PERIOD);
     }
 }
